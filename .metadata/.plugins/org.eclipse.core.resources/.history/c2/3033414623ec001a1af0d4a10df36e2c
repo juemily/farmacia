@@ -1,0 +1,65 @@
+package com.farmacia.service.imp;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
+
+import com.farmacia.entity.FarmaciaEntity;
+import com.farmacia.repository.FarmaciaRepository;
+import com.farmacia.service.FarmaciaService;
+
+@Service("farmaciaServiceImp")
+public class FarmaciaServiceImp implements FarmaciaService{
+	
+	private static final Log LOG = LogFactory.getLog(FarmaciaServiceImp.class);
+	
+	@Autowired
+	@Qualifier("farmaciaRepository")
+	private FarmaciaRepository farmaciaRepository;
+	
+	 List<FarmaciaEntity> response = new ArrayList<FarmaciaEntity>();
+
+	@Override
+	public List<FarmaciaEntity> getAll() {
+		// TODO Auto-generated method stub
+		
+		return farmaciaRepository.findAll();
+	}
+
+	@Override
+	public List<FarmaciaEntity> getByComuna(int Comuna) {
+		
+		try {
+			response= farmaciaRepository.getByComuna(Comuna);
+		} catch (Exception e) {
+			LOG.error(" Error En metodo getByComuna: "+e);
+		}
+		return response;
+	}
+
+	@Override
+	public List<FarmaciaEntity> getByRegion(int region) {
+		try {
+			response = farmaciaRepository.getByRegion(region);
+		} catch (Exception e) {
+			LOG.error(" Error En metodo getByRegion: "+e);
+		}
+		return response;
+	}
+
+	@Override
+	public List<FarmaciaEntity> getByName(String name) {
+		try {
+			response= farmaciaRepository.getByName(name);
+		} catch (Exception e) {
+			LOG.error(" Error En metodo getByName: "+e);
+		}
+		return response;
+	}
+
+}

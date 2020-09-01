@@ -1,0 +1,24 @@
+package com.farmacia.repository;
+
+import java.io.Serializable;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.farmacia.entity.FarmaciaEntity;
+
+@Repository("farmaciaRepository")
+public interface FarmaciaRepository extends JpaRepository<FarmaciaEntity, Serializable> {
+	@Query(value= "SELECT * FROM farmacias f WHERE f.comuna_id = ?1", nativeQuery = true)
+	 List<FarmaciaEntity> getByComuna(int comuna);
+	
+	@Query(value= "SELECT * FROM farmacias f WHERE f.region_id = ?1", nativeQuery = true)
+	 List<FarmaciaEntity> getByRegion(int region);
+	
+	@Query(value= "SELECT * FROM farmacias f WHERE f.nombre_local = ?1", nativeQuery = true)
+	 List<FarmaciaEntity> getByName(String name);
+	
+
+}

@@ -1,0 +1,19 @@
+package com.farmacia.repository;
+
+import java.io.Serializable;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.farmacia.entity.FarmaciaEntity;
+
+@Repository("farmaciaRepository")
+public interface FarmaciaRepository extends JpaRepository<FarmaciaEntity, Serializable> {
+	
+	 List<FarmaciaEntity> getByComuna(int Comuna);
+	 List<FarmaciaEntity> getByRegion(int region);
+	 List<FarmaciaEntity> getByName(String name);
+	
+
+}

@@ -1,0 +1,11 @@
+package com.farmacia.repository;
+
+import java.io.Serializable;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.farmacia.entity.FarmaciaEntity;
+
+public interface FarmaciaRepository extends JpaRepository<FarmaciaEntity, Serializable> {
+
+}

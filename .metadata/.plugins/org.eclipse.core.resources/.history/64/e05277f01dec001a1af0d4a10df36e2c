@@ -1,0 +1,37 @@
+package com.farmacia.service.imp;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.farmacia.entity.FarmaciaEntity;
+import com.farmacia.service.FarmaciaService;
+
+@Service("farmaciaServiceImp")
+public class FarmaciaServiceImp implements FarmaciaService{
+
+	@Override
+	public List<FarmaciaEntity> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<FarmaciaEntity> getByComuna(int Comuna) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<FarmaciaEntity> getByRegion(int region) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<FarmaciaEntity> getByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
